@@ -1,0 +1,51 @@
+# Arquivos do Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Ambiente virtual (ajuste o nome do seu ambiente, se for diferente)
+venv/
+env/
+.venv/
+.env/
+
+# Configurações do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de log
+*.log
+
+# Arquivos do banco de dados SQLite
+*.sqlite3
+
+# Arquivos de migração criados automaticamente (opcional ignorar, cuidado!)
+# Se quiser versionar migrações, não ignore esta linha
+# */migrations/*.py
+*/migrations/__pycache__/
+
+# Arquivos de configuração locais e variáveis de ambiente
+.env
+*.env
+
+# Arquivos estáticos gerados (coletados via collectstatic)
+staticfiles/
+static/
+
+# Arquivos de mídia (uploads de usuários, se não quiser versionar)
+media/
+
+# Arquivos compilados de traduções
+*.mo
+
+# Cobertura de testes
+htmlcov/
+.coverage
+.coverage.*
+
+# Outros arquivos temporários
+*.bak
+*.swp
+*.tmp
