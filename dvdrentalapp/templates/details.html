@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Usuário: {{customer_name}}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <a href="../"> < voltar </a>
+        <h1>Datalhes para {{customer_name}}</h1>
+
+        <table>
+            <tr>
+                <th>inventory_id</th>
+                <th>rental_date</th>
+            </tr>
+            {% for x in myDetalhe %}
+                <tr>
+                    <td>{{x.inventory_id}}</td>
+                    <td>{{x.rental_date}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <script src="" async defer></script>
+    </body>
+</html>

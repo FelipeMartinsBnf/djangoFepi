@@ -12,8 +12,12 @@
         <h1>Customers</h1>
 
         <ul>
-            {% for customer in customers %}
-            <li>{{x.user_name}} {{x.last_name}}</li>
+            {% for customer in mycustomer %}
+            <li>
+                <a href="/customer/detalhes/{{customer.customer_id}}">
+                    {{customer.first_name}} {{customer.last_name}}
+                </a>
+            </li>
             {% endfor %}
         </ul>
         <script src="" async defer></script>
