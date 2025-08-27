@@ -3,33 +3,33 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>All Customers</title>
+        <title>Categorias</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {% load static %}
         <link rel="stylesheet" href="{% static 'css/main.css' %}">
         <link rel="stylesheet" href="{% static 'css/list.css' %}">
+        <link rel="stylesheet" href="{% static 'css/list.css' %}">
     </head>
     <body>
         {% include "header.html" %}
         <div class=".container">
-            <h1>Customers</h1>
-
+            <h1>Categories | Categorias</h1>
             <ul>
-                {% for customer in mycustomer %}
+                {% for category in categories %}
                 <li>
-                    <a href="/customer/detalhes/{{customer.customer_id}}">
-                        {{customer.first_name}} {{customer.last_name}}
+                    <a >
+                        {{category.name}}
                     </a> 
-                    <a href="/customer/edit/{{customer.customer_id}}" class="edit_btn">
+                    {% comment %} <a href="/customer/edit/{{customer.customer_id}}" class="edit_btn">
                         ✏️
-                    </a>
+                    </a> {% endcomment %}
                 </li>
                 {% endfor %}
             </ul>
-            <div class="new_btn_container_sticky">
-                <a class="add_btn" href="{% url 'add_customer' %}">+ New customer</a>
-            </div>
+        </div>
+        <div class="new_btn_container_sticky">
+            <a class="add_btn" href="{% url 'add_category' %}">+ New category</a>
         </div>
     </body>
 </html>

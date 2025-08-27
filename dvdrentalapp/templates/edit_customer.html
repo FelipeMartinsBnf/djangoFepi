@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Editando: {{customer.first_name}}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    </head>
+    <body>
+        {% include "header.html" %}
+        <div class="container">
+            <a href="../" class="back-btn"> < voltar </a>
+            <h1>Editar usuário {{customer.first_name}}</h1>
+            <form method="post">
+                {% csrf_token %}
+                <div style="margin-top: 1em;">
+                    <div class="input-div">
+                        <label for="first_name">Primeiro Nome:</label>
+                        <input type = "text"
+                        name = "first_name"
+                        id = "first_name"
+                        value = {{customer.first_name}}>
+                    </div>
+                </div>
+                <div style="margin-top: 1em;">
+                    <div class="input-div">
+                        <label for="last_name">Último nome:</label>
+                        <input type = "text"
+                        name = "last_name"
+                        id = "last_name"
+                        value = {{customer.last_name}}>
+                    </div>
+                </div>
+                <div style="margin-top: 1em;">
+                    <div class="input-div">
+                        <label for="email">E-mail:</label>
+                        <input type = "email"
+                        name = "email"
+                        id = "email"
+                        value = {{customer.email}}>
+                    </div>
+                </div>
+                <div style="margin-top: 1em;" class="input-div">
+                    <input type="submit" value="Salvar">
+                </div>
+            </form>
+        </div>
+        <script src="" async defer></script>
+    </body>
+</html>

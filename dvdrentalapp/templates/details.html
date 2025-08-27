@@ -6,24 +6,27 @@
         <title>Usuário: {{customer_name}}</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
     </head>
     <body>
-        <a href="../"> < voltar </a>
-        <h1>Datalhes para {{customer_name}}</h1>
+        {% include "header.html" %}
+        <div class="container">
+            <a href="../" class="back-btn"> < voltar </a>
+            <h1>Datalhes para {{customer_name}}</h1>
 
-        <table>
-            <tr>
-                <th>inventory_id</th>
-                <th>rental_date</th>
-            </tr>
-            {% for x in myDetalhe %}
+            <table>
                 <tr>
-                    <td>{{x.inventory_id}}</td>
-                    <td>{{x.rental_date}}</td>
+                    <th>inventory_id</th>
+                    <th>rental_date</th>
                 </tr>
-            {% endfor %}
-        </table>
-        <script src="" async defer></script>
+                {% for x in myDetalhes %}
+                    <tr>
+                        <td>{{x.inventory_id}}</td>
+                        <td>{{x.rental_date}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
     </body>
 </html>

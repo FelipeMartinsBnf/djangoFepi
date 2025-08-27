@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>New Customer</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    </head>
+    <body>
+        {% include "header.html" %}
+        <div class="container">
+            <a href="/customer" class="back-btn"> < voltar </a>
+            <h1>Create new customer</h1>
+            <form method="post">
+                {% csrf_token %}
+                <div class="grid-2x-row">
+                    <div>
+                        <div>
+                            <div class="input-div">
+                                <label for="address">Address:</label>
+                                <input type = "text"
+                                name = "address"
+                                id = "address"
+                                >
+                            </div>
+                        </div>
+                        <div style="margin-top: 1em;">
+                            <div class="input-div">
+                                <label for="district">district:</label>
+                                <input type = "text"
+                                name = "district"
+                                id = "district"
+                                >
+                            </div>
+                        </div>
+                        <div style="margin-top: 1em;">
+                            <div class="input-div">
+                                <label for="city">City:</label>
+                                <select name="city" id="city">
+                                    {% for city in cities %}
+                                        <option value="{{ city.city_id }}">{{ city.city }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div style="margin-top: 1em;">
+                            <div class="input-div">
+                                <label for="phone">Phone:</label>
+                                <input type = "phone"
+                                name = "phone"
+                                id = "phone"
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    <div> 
+                        <div>
+                            <div class="input-div">
+                                <label for="first_name">First name:</label>
+                                <input type = "text"
+                                name = "first_name"
+                                id = "first_name"
+                                >
+                            </div>
+                        </div>
+                        <div style="margin-top: 1em;">
+                            <div class="input-div">
+                                <label for="last_name">Last name:</label>
+                                <input type = "text"
+                                name = "last_name"
+                                id = "last_name"
+                                >
+                            </div>
+                        </div>
+                        <div style="margin-top: 1em;">
+                            <div class="input-div">
+                                <label for="email">Email:</label>
+                                <input type = "email"
+                                name = "email"
+                                id = "email"
+                                >
+                            </div>
+                        </div>
+                        <div style="margin-top: 1em;">
+                            <div class="input-div">
+                                <input type="submit" value="Save Custumer">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <script src="" async defer></script>
+    </body>
+</html>

@@ -6,57 +6,24 @@
         <title>Desafio - Países</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+        <link rel="stylesheet" href="{% static 'css/list.css' %}">
     </head>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f4f7f8;
-            color: #333;
-            margin: 40px;
-        }
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-            margin-bottom: 30px;
-        }
-        ul {
-            list-style: none;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 0;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(44, 62, 80, 0.15);
-            background: #fff;
-        }
-        li {
-            padding: 15px 20px;
-            border-bottom: 1px solid #e1e4e8;
-            font-size: 1.1em;
-            transition: background 0.3s ease;
-        }
-        li:hover {
-            background: #ecf0f1;
-            cursor: default;
-        }
-        li:last-child {
-            border-bottom: none;
-        }
-        .no-data {
-            text-align: center;
-            font-style: italic;
-            color: #7f8c8d;
-            margin-top: 20px;
-            font-size: 1.2em;
-        }
-    </style>
 </head>
 <body>
     <h1>Lista de Países</h1>
     <br>
     <ul>
         {% for c in countries %}
-            <li>{{ c.country }}</li>
+            <li>
+                <a>
+                    {{ c.country }}
+                </a> 
+                <a href="/countries/edit/{{ c.country_id }}" class="edit_btn">
+                    ✏️
+                </a>
+            </li>
         {% endfor %}
     </ul>
     <br>

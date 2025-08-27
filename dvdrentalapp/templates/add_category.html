@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>New Category</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    </head>
+    <body>
+        {% include "header.html" %}
+        <div class="container">
+            <a href="/categories" class="back-btn"> < voltar </a>
+            <h1>Create new category</h1>
+            <form method="post">
+                {% csrf_token %}
+                <div style="margin-top: 1em;">
+                    <div class="input-div">
+                        <label for="name">Name:</label>
+                        <input type = "text"
+                        name = "name"
+                        id = "name"
+                        >
+                    </div>
+                </div>
+                <div style="margin-top: 1em;" class="input-div">
+                    <input type="submit" value="Save new category">
+                </div>
+            </form>
+        </div>
+        <script src="" async defer></script>
+    </body>
+</html>
