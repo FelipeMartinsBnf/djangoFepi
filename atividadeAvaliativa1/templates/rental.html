@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Alugeis</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <a href="../home" style="text-decoration:none">< voltar</a>
+        <h1>Alugeis / Rental</h1>
+        <div>
+            <p>Dados de alugel para o usuário {{customer.first_name}}</p>
+            <ul style="max-width:720px">
+                {% for r in rental %}
+                <a href='./payment/{{r.rental_id}}' style="text-decoration:none">
+                    <li style="padding:4px 0; list-style:none; border-bottom:1px solid #666">
+                        <span style="color:#666; font-size:12px">id: {{r.rental_id}}</span> <br>
+                        Data da compra: {{r.rental_date}} <br>
+                        inventory_id: {{r.inventory_id}}
+                        
+                    </li>
+                </a>
+                {% endfor %}
+            </ul>
+        </div>
+    </body>
+</html>

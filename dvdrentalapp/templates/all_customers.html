@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,20 +7,43 @@
         <title>All Customers</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        {% load static %}
         <link rel="stylesheet" href="{% static 'css/main.css' %}">
         <link rel="stylesheet" href="{% static 'css/list.css' %}">
     </head>
     <body>
         {% include "header.html" %}
-        <div class=".container">
+        <div class="container">
             <h1>Customers</h1>
-
             <ul>
+                <div class="search-div">
+                    <form method="post">
+                        {% csrf_token %}
+                        <input type = "text"
+                            name = "first_name"
+                            id = "first_name"
+                            value = "{{nameFilter}}"
+                            placeholder="Search"
+                        >
+                        <select name="type" id="type">
+                                <option value="first_name__contains">contains</option>
+                                <option value="first_name__icontains">icontains</option>
+                                <option value="first_name__endswith">endswith</option>
+                                <option value="first_name__iendswith">iendswith</option>
+                                <option value="first_name__exact">exact</option>
+                                <option value="first_name__iexact">iexact</option>
+                                <option value="first_name__in">in</option>
+                                <option value="customer_id__gt">gt</option>
+                                <option value="customer_id__gte">gte</option>
+                                <option value="customer_id__lt">lt</option>
+                                <option value="customer_id__lte">lte</option>
+                        </select>
+                        <input type="submit" value="🔍">
+                    </form>
+                </div>
                 {% for customer in mycustomer %}
                 <li>
                     <a href="/customer/detalhes/{{customer.customer_id}}">
-                        {{customer.first_name}} {{customer.last_name}}
+                        <span class="user_id">{{customer.customer_id}}.</span>{{customer.first_name}} {{customer.last_name}}
                     </a> 
                     <a href="/customer/edit/{{customer.customer_id}}" class="edit_btn">
                         ✏️
@@ -27,9 +51,9 @@
                 </li>
                 {% endfor %}
             </ul>
-            <div class="new_btn_container_sticky">
-                <a class="add_btn" href="{% url 'add_customer' %}">+ New customer</a>
-            </div>
+        </div>
+        <div class="new_btn_container_sticky">
+            <a class="add_btn" href="{% url 'add_customer_form' %}">+ New customer</a>
         </div>
     </body>
 </html>

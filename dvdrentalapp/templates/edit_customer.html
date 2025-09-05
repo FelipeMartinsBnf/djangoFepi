@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,33 +17,13 @@
             <h1>Editar usuário {{customer.first_name}}</h1>
             <form method="post">
                 {% csrf_token %}
-                <div style="margin-top: 1em;">
-                    <div class="input-div">
-                        <label for="first_name">Primeiro Nome:</label>
-                        <input type = "text"
-                        name = "first_name"
-                        id = "first_name"
-                        value = {{customer.first_name}}>
-                    </div>
+                {% for field in form %}
+                <div class="input-div">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {{ field.errors }}
                 </div>
-                <div style="margin-top: 1em;">
-                    <div class="input-div">
-                        <label for="last_name">Último nome:</label>
-                        <input type = "text"
-                        name = "last_name"
-                        id = "last_name"
-                        value = {{customer.last_name}}>
-                    </div>
-                </div>
-                <div style="margin-top: 1em;">
-                    <div class="input-div">
-                        <label for="email">E-mail:</label>
-                        <input type = "email"
-                        name = "email"
-                        id = "email"
-                        value = {{customer.email}}>
-                    </div>
-                </div>
+                {% endfor %}
                 <div style="margin-top: 1em;" class="input-div">
                     <input type="submit" value="Salvar">
                 </div>

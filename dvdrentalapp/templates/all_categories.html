@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,7 +7,6 @@
         <title>Categorias</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        {% load static %}
         <link rel="stylesheet" href="{% static 'css/main.css' %}">
         <link rel="stylesheet" href="{% static 'css/list.css' %}">
         <link rel="stylesheet" href="{% static 'css/list.css' %}">
@@ -16,14 +16,39 @@
         <div class=".container">
             <h1>Categories | Categorias</h1>
             <ul>
+                <div class="search-div">
+                    <form method="post">
+                        {% csrf_token %}
+                        <input type = "text"
+                            name = "first_name"
+                            id = "first_name"
+                            value = "{{nameFilter}}"
+                            placeholder="Search"
+                        >
+                        <select name="type" id="type">
+                                <option value="name__contains">contains</option>
+                                <option value="name__icontains">icontains</option>
+                                <option value="name__endswith">endswith</option>
+                                <option value="name__iendswith">iendswith</option>
+                                <option value="name__exact">exact</option>
+                                <option value="name__iexact">iexact</option>
+                                <option value="name__in">in</option>
+                                <option value="category_id__gt">gt</option>
+                                <option value="category_id__gte">gte</option>
+                                <option value="category_id__lt">lt</option>
+                                <option value="category_id__lte">lte</option>
+                        </select>
+                        <input type="submit" value="🔍">
+                    </form>
+                </div>
                 {% for category in categories %}
                 <li>
                     <a >
-                        {{category.name}}
+                        <span class="user_id">{{category.category_id}}.</span>{{category.name}}
                     </a> 
-                    {% comment %} <a href="/customer/edit/{{customer.customer_id}}" class="edit_btn">
+                    <a href="/categories/edit/{{category.category_id}}" class="edit_btn">
                         ✏️
-                    </a> {% endcomment %}
+                    </a>
                 </li>
                 {% endfor %}
             </ul>

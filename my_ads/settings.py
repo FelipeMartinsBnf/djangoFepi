@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'dvdrentalapp',
-    'desafio01'
+    'desafio01',
+    'atividadeAvaliativa1'
 ]
 
 MIDDLEWARE = [
