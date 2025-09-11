@@ -103,3 +103,16 @@ def custumersJson(request):
         
         #return JsonResponse(customers_list)
         return render(request, 'json.json', {'json': jsonCustumers})
+    
+def get_rental_details(request, id):
+    myDetalhes = Rental.objects.filter(customer_id=id)
+    customer = get_object_or_404(Customer, pk = id)
+    template = loader.get_template('modal/rental_modal_content.html')
+    
+    context = {
+        "myDetalhe": myDetalhes,
+        "customer_name": f"{customer.first_name} {customer.last_name}"
+    }
+    
+    rendered_content = template.render(context, request)
+    return JsonResponse({'html': rendered_content })

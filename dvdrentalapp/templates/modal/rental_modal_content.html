@@ -1,0 +1,19 @@
+<h2>Detalhes para {{customer_name}}</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>rental_id</th>
+            <th>rental_date</th>
+            <th>inventory_id</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for x in myDetalhe %}
+            <tr>
+                <td><a href="/paymen/{{ x.rental_id }}">{{ x.rental_id }}</a></td>
+                <td>{{x.rental_date}}</td>
+                <td>{{x.inventory_id}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
