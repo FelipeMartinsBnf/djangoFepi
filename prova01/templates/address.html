@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Address</title>
+</head>
+<body>
+    <section>
+        <h1>All Address</h1>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            id
+                        </th>
+                        <th>
+                            address
+                        </th>
+                        <th>
+                            postal code
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in address %}
+                    <div>
+                            <tr>
+                                <td>
+                                    {{i.address_id}}
+                                </td>
+                                <td>
+                                  {{i.address}}
+                                </td>
+                                <td>
+                                    {{i.postal_code}}
+                                 </td>
+                        </tr>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+</body>
+</html>

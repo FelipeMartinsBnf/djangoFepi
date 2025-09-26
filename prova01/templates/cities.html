@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Cities</title>
+</head>
+<body>
+    <section>
+        <h1>All Citites</h1>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            id
+                        </th>
+                        <th>
+                            city
+                        </th>
+                        <th>
+                            country id
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in cities %}
+                    <div>
+                            <tr>
+                                <td>
+                                    {{i.city_id}}
+                                </td>
+                                <td>
+                                   <a href="/prova/city/address/{{i.city_id}}">{{i.city}}</a>
+                                </td>
+                                <td>
+                                    {{i.country_id}}
+                                 </td>
+                        </tr>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+</body>
+</html>

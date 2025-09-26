@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>New User</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    </head>
+    <body>
+        {% include "header.html" %}
+      
+        <div class="container">
+            <h1>Create User</h1>
+            {% block content %}
+            <form method="post">
+                {% csrf_token %}
+               
+                {% for field in form %}
+                <div class="input-div">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {{ field.errors }}
+                </div>
+                {% endfor %}
+
+                <div style="margin-top: 1em;">
+                    <div class="input-div">
+                        <input type="submit" value="Create user" class="btn btn-primary">
+                    </div>
+                </div>
+            </form>
+            {% endblock content %}
+        </div>
+        <script src="" async defer></script>
+    </body>
+</html>

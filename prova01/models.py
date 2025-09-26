@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
 
 # This is an auto-generated Django model module.
 # You'll have to do the following manually to clean this up:
@@ -123,6 +122,9 @@ class City(models.Model):
     class Meta:
         managed = False
         db_table = 'city'
+        
+    def __str__(self) -> str:
+        return f'{ self.city}, {self.country}'
 
 
 class Country(models.Model):
@@ -133,6 +135,9 @@ class Country(models.Model):
     class Meta:
         managed = False
         db_table = 'country'
+        
+    def __str__(self) -> str:
+        return f'{self.country}'
 
 
 class Customer(models.Model):
@@ -325,10 +330,3 @@ class Store(models.Model):
     class Meta:
         managed = False
         db_table = 'store'
-
-class CustomUser(AbstractUser):
-    endereco = models.CharField(max_length=255)
-    cidade = models.CharField(max_length=255)
-    estado = models.CharField(max_length=255)
-    cep = models.CharField(max_length=20)
-    
